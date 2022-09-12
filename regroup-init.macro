@@ -1,0 +1,1 @@
+/run function keepers() print("---"); for k,v in pairs(r) do print("Keeping:  "..v); end; end; r={}; print "Keepers Reset"; keepers()
