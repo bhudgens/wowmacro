@@ -1,0 +1,5 @@
+/run names={}
+/run for i=2,5 do name=GetRaidRosterInfo(i); table.insert(names,name); end
+/run for k, v in pairs(names) do UninviteUnit(v, "Reforming"); end
+/run LeaveParty()
+/run for k, v in pairs(names) do InviteUnit(v); end
