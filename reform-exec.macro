@@ -1,0 +1,1 @@
+/run ns={}; for k,v in pairs(r) do n=GetRaidRosterInfo(v); table.insert(ns,n); end; for k, v in pairs(ns) do UninviteUnit(v, "Reforming"); end; LeaveParty(); for k, v in pairs(ns) do InviteUnit(v); end; r={}
