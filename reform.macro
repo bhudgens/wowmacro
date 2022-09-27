@@ -1,5 +1,2 @@
-/run names={}
-/run for i=2,5 do name=GetRaidRosterInfo(i); table.insert(names,name); end
-/run for k, v in pairs(names) do UninviteUnit(v, "Reforming"); end
-/run LeaveParty()
-/run for k, v in pairs(names) do InviteUnit(v); end
+/run ns={}
+/run for i=2,5 do n=GetRaidRosterInfo(i); table.insert(ns,n); end; for k, v in pairs(ns) do UninviteUnit(v, "Reforming"); end; LeaveParty(); for k, v in pairs(ns) do InviteUnit(v); end; if a == nil then a=UnitName("target") end; InviteUnit(a) 
