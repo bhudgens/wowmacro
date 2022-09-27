@@ -1,2 +1,2 @@
 #showtooltip
-[stance:3] Swipe; /cast [stance:1] Growl
+/cast [stance:3] Swipe; /cast [stance:1] Growl
