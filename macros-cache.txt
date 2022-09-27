@@ -1,0 +1,90 @@
+VER 3 0000000000000015 "2" "136047"
+/run n=GetRaidRosterInfo(2); if n ~= nil then table.insert(ns,n); end; keepers()
+END
+VER 3 0000000000000017 "3" "136047"
+/run n=GetRaidRosterInfo(3); if n ~= nil then table.insert(ns,n); end; keepers()
+END
+VER 3 0000000000000018 "4" "136047"
+/run n=GetRaidRosterInfo(4); if n ~= nil then table.insert(ns,n); end; keepers()
+END
+VER 3 0000000000000019 "5" "136047"
+/run n=GetRaidRosterInfo(5); if n ~= nil then table.insert(ns,n); end; keepers()
+END
+VER 3 000000000000000B "Compute" "132095"
+# Compute
+/run msg=""
+/run c=0
+/run c=t+h+d
+/run msg="LF"..c.."M".." - "..i.." - "
+/run if t>0 then msg=msg..t.."xTank " end; if h>0 then msg=msg..h.."xHeal " end; if d>0 then msg=msg..d.."xDps " end
+/run print(msg)
+END
+VER 3 000000000000000D "DPS" "132147"
+/script if d<=0 then d=2 else d=d-1 end
+/script print(d)
+END
+VER 3 000000000000000E "Heals" "132147"
+/run if h==1 then h=0 else h=1 end
+/run print(h)
+END
+VER 3 0000000000000016 "Init" "136031"
+/run ns={}; function keepers() print("---"); for k,v in pairs(ns) do print("Keeping:  "..v); end; end; print "Keepers Reset"
+END
+VER 3 0000000000000003 "KillOrder" "132096"
+/p Kill order {skull},{cross},{square},{star}/{moon}
+/p CC: Sap:{star}
+/p CC: Sheep:{moon}
+/p Patrol: {circle}
+END
+VER 3 0000000000000014 "Reform" "136033"
+/run for k, v in pairs(ns) do UninviteUnit(v, "Reforming"); end; LeaveParty(); for k, v in pairs(ns) do InviteUnit(v); end; r={}
+END
+VER 3 0000000000000013 "Reform" "134017"
+/run ns={}
+/run for i=2,5 do n=GetRaidRosterInfo(i); table.insert(ns,n); end; for k, v in pairs(ns) do UninviteUnit(v, "Reforming"); end; LeaveParty(); for k, v in pairs(ns) do InviteUnit(v); end; if a == nil then a=UnitName("target") end; InviteUnit(a) 
+END
+VER 3 0000000000000006 "Send" "132097"
+# Send
+/run SendChatMessage(msg , "CHANNEL", nil, 1)
+/run SendChatMessage(msg , "CHANNEL", nil, 2)
+/run SendChatMessage(msg , "CHANNEL", nil, 4)
+END
+VER 3 000000000000000A "Set" "132192"
+# set 
+/run i="Sethekk Halls - Will Summon"; t=0; h=1; d=1
+/run print(i)
+END
+VER 3 0000000000000007 "shoot" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/petattack
+/cast shoot
+END
+VER 3 000000000000000C "Tank" "132147"
+/run if t==1 then t=0 else t=1 end
+/run print(t)
+END
+VER 3 0000000000000001 "tar" "132092"
+/cleartarget
+/tar Magus
+/run SetRaidTarget("target",8)
+END
+VER 3 0000000000000009 "TSMMacro" "INV_Misc_Flower_01"
+/click TSMAuctioningBtn
+END
+VER 3 0000000000000002 "ZygorAction1" "132212"
+#showtooltip Talk to McGoyver
+/run ZGV:MCM(4)
+/cleartarget
+/target McGoyver
+/run ZGV:MRM()
+END
+VER 3 000000000000000F "ZygorAction2" "134400"
+END
+VER 3 0000000000000010 "ZygorAction3" "134400"
+END
+VER 3 0000000000000011 "ZygorAction4" "134400"
+END
+VER 3 000000000000001A "ZygorAction5" "134400"
+END
+VER 3 000000000000001B "ZygorAction6" "134400"
+END
